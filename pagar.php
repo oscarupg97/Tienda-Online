@@ -44,7 +44,7 @@ foreach($_SESSION['CARRITO'] as $indice=>$PRODUCTO){
     <h1 class="display-4">¡Paso Final!</h1>
     <hr class="my-4">
     <p class="lead">Estas a punto de realizar el pago con PayPal la cantidad de: 
-    <h4> $ <?php echo number_format($total,0);?></h4>
+    <h4> $ <?php echo number_format($total,0);?> MXN </h4>
     <div id="paypal-button-container">
     
 </div>
