@@ -4,15 +4,15 @@ include 'global/conexion.php';
 include 'carrito.php';
 include 'templates/cabecera.php';
 ?>
-        <br>
-        <br>
-        <br>
+<br>
+<br>
+<br>
+        <?php if($mensaje!=""){ ?>
         <div class="alert alert-success" role="alert"> 
-  <?php
-    echo($mensaje);
-  ?>
+        <?php echo($mensaje);?>
   <a href="mostrarCarrito.php" class="badge badge-success"> Ver Carrito </a>
 </div>
+<?php } ?>
 <div class="row">
     <?php
         $sentencia=$pdo->prepare("SELECT * FROM `productos`");

@@ -39,8 +39,14 @@ if(isset($_POST['btnAccion'])){
                 'price' =>$precio,
             );
             $_SESSION['CARRITO'][0] = $PRODUCTO;
+            $mensaje= "Producto agregado al carrito";
         }
         else{
+$idProducto=array_column($_SESSION['CARRITO'],"id");
+if(in_array($id,$idProducto)){
+    echo "<script>alert('El producto ya a sido seleccionado')</script>";
+}else{
+
             $numeroProductos=count($_SESSION['CARRITO']);
             $PRODUCTO=array(
                 'id' =>$id,
@@ -49,9 +55,13 @@ if(isset($_POST['btnAccion'])){
                 'price' =>$precio,
             );
             $_SESSION['CARRITO'][$numeroProductos] = $PRODUCTO;
+            $mensaje= "Producto agregado al carrito";
         }
-        $mensaje=print_r($_SESSION,true);
+}
+        //$mensaje=print_r($_SESSION,true);
+        
         break;
+
         case "Eliminar":
         if(is_numeric( openssl_decrypt($_POST['id'],Cod,Key))){
             $id= openssl_decrypt($_POST['id'],Cod,Key);
